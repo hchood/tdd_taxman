@@ -21,3 +21,5 @@ require 'rspec'
 
 # class Employee
 # end
+
+# NEED TO TEST OUTPUT TO CONSOLE?
