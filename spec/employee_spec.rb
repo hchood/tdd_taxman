@@ -16,23 +16,11 @@ describe Employee do
     expect(employees.first).to be_a(Employee)
   end
 
-  it 'has a first name' do
+  it 'has a first name, last name, annual income, tax_paid, and tax_rate' do
     expect(Employee.new('Helen', 'Hood', 38000, 10000, 30).first_name).to eql('Helen')
-  end
-
-  it 'has a last name'do
     expect(Employee.new('Helen', 'Hood', 38000, 10000, 30).last_name).to eql('Hood')
-  end
-
-  it 'has an annual income'do
     expect(Employee.new('Helen', 'Hood', 38000, 10000, 30).annual_income).to eql(38000.0)
-  end
-
-  it 'has a tax paid amount'do
     expect(Employee.new('Helen', 'Hood', 38000, 10000, 30).tax_paid).to eql(10000.0)
-  end
-
-  it 'has a tax rate'do
     expect(Employee.new('Helen', 'Hood', 38000, 10000, 30).tax_rate).to eql(30.0)
   end
 
