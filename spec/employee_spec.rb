@@ -13,7 +13,7 @@ describe Employee do
   end
 
   it 'creates an array of Employee objects' do
-    expect(employees.first.class).to eql(Employee)
+    expect(employees.first).to be_a(Employee)
   end
 
   it 'has a first name' do
