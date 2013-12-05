@@ -3,7 +3,7 @@ require_relative '../lib/liability'
 require_relative '../lib/employee'
 
 describe Liability do
-  an_employee = Employee.new('helen', 'hood', 0,0,0)
+  an_employee = Employee.new('helen', 'hood', 38000, 10000, 30)
   let(:liability) { Liability.new(an_employee, 1000, 0)}
   it 'has (and exposes) an employee' do
     expect(liability.employee).to eql(an_employee)
@@ -16,7 +16,6 @@ describe Liability do
   it 'has (and exposes) an amount owed' do
     expect(liability.amount_owed). to eql(0)
   end
-
 end
 
 # REQUIREMENTS:
