@@ -3,7 +3,7 @@ require 'csv'
 class Employee
   attr_reader :first_name, :last_name, :annual_income, :tax_paid, :tax_rate
 
-  def initialize(first_name, last_name, annual_income, tax_paid, tax_rate)
+  def initialize(first_name = '[First name]', last_name = '[Last name]', annual_income = 0, tax_paid = 0, tax_rate = 0)
     @first_name = first_name || '[First name]'
     @last_name = last_name || '[Last name]'
     @annual_income = annual_income.to_f
