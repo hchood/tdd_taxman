@@ -1,5 +1,7 @@
 require 'rspec'
 require_relative '../lib/tax_calculator'
+require_relative '../lib/employee'
+require_relative '../lib/liability'
 
 # REQUIREMENTS:
 
@@ -8,3 +10,25 @@ require_relative '../lib/tax_calculator'
 # * that receives an instance of an Employee class
 # * and calculates taxes owed or refund due
 # * returns an instance of Liability class
+
+describe TaxCalculator do
+  employee = Employee.new('helen', 'hood', 38000, 10000, 30)
+
+  it 'has a class method liability' do
+    expect(TaxCalculator.respond_to?(:liability)).to be true
+  end
+
+  it 'receives an instance of an Employee class' do  #FAILING
+    TaxCalculator.should_receive(:liability).with(instance_of(Employee))
+  end
+
+  it 'calculates taxes owed or refund due' do
+    expect(TaxCalculator.liability(employee).amount_owed).to eql(1400.0)
+    expect(TaxCalculator.liability(employee).amount_due).to eql(0)
+  end
+
+  it 'returns an instance of the Liability class' do
+    expect(TaxCalculator.liability(employee)).to be_a(Liability)
+  end
+
+end
