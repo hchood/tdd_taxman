@@ -19,7 +19,7 @@ describe TaxCalculator do
   end
 
   it 'receives an instance of an Employee class' do  #FAILING
-    TaxCalculator.should_receive(:liability).with(instance_of(Employee))
+    expect {TaxCalculator.liability("some string")}.to raise_error(ArgumentError, "You must pass in an Employee object.")
   end
 
   it 'calculates taxes owed or refund due' do
@@ -30,5 +30,4 @@ describe TaxCalculator do
   it 'returns an instance of the Liability class' do
     expect(TaxCalculator.liability(employee)).to be_a(Liability)
   end
-
 end
