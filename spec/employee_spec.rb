@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../lib/employee'
 
 describe Employee do
-  let(:employees) { Employee.parse_data('../data/citizens.csv')}
+  let(:employees) { Employee.parse_data('test_citizens.csv')}
 
   it 'creates an array' do
     expect(employees.class).to eql(Array)
