@@ -7,7 +7,8 @@ class TaxCalculator
       raise ArgumentError, "You must pass in an Employee object."
     else
       amount_owed = (employee.annual_income * employee.tax_rate/100) - employee.tax_paid
-      Liability.new(employee, amount_owed)
+      liabiliity_obj = Liability.new(employee, amount_owed)
     end
+    liabiliity_obj
   end
 end
