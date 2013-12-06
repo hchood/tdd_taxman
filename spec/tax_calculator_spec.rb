@@ -31,4 +31,29 @@ describe TaxCalculator do
   it 'returns an instance of the Liability class' do
     expect(TaxCalculator.liability(employee)).to be_a(Liability)
   end
+
+  it 'has a class method summary_info' do
+    expect(TaxCalculator.respond_to?(:summary_info)).to be true
+  end
+
+  it 'returns an array of strings including employee first and last name' do
+    expect(TaxCalculator.summary_info(employees).first).to include('Johnny')
+    expect(TaxCalculator.summary_info(employees).first).to include('Smith')
+  end
+
+  it 'returns "has a tax liability of $[amount_due]" for an employee who owes money' do
+    expect(TaxCalculator.summary_info(employees)[2]).to include('will receive a refund of $21,000')
+  end
+
+  it 'returns "will receive a refund of $[refund amount]" for an employee who should get a refund' do
+    expect(TaxCalculator.summary_info(employees)[0]).to include('has a tax liability of $17,600')
+  end
+
+  it 'does NOT include refund amount for employees who do not receive refunds' do
+    TaxCalculator.summary_info(employees)[0].should_not include('will receive a refund')
+  end
+
+  it 'does NOT include amount owed for employees who do not owe money' do
+    TaxCalculator.summary_info(employees)[2].should_not include('has a tax liability of')
+  end
 end
