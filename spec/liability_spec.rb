@@ -3,8 +3,12 @@ require_relative '../lib/liability'
 require_relative '../lib/employee'
 
 describe Liability do
-  an_employee = Employee.new('helen', 'hood', 38000, 10000, 30)
-  let(:liability) { Liability.new(an_employee, 1000, 0)}
+  employee_no_refund = Employee.new('helen', 'hood', 38000, 10000, 30) # => owes $1400 to IRS
+  let(:liability1) { TaxCalculator.liability(employee_no_refund) }
+
+  employee_w_refund = Employee.new('jon', 'barry', 50000, 15000, 28) # => should receive $1000 refund
+  let(:liability2) { TaxCalculator.liability(employee_w_refund) }
+
   it 'has (and exposes) an employee' do
     expect(liability.employee).to eql(an_employee)
   end
