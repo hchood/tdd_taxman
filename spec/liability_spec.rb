@@ -10,10 +10,10 @@ require_relative '../lib/tax_calculator'
 # * amount_owed (amount owed to the IRS)
 
 describe Liability do
-  employee_no_refund = Employee.new('helen', 'hood', 38000, 10000, 30) # => owes $1400 to IRS
+  let(:employee_no_refund) { Employee.new('helen', 'hood', 38000, 10000, 30) } # => owes $1400 to IRS
   let(:liability1) { TaxCalculator.liability(employee_no_refund) }
 
-  employee_w_refund = Employee.new('jon', 'barry', 50000, 15000, 28) # => should receive $1000 refund
+  let(:employee_w_refund) { Employee.new('jon', 'barry', 50000, 15000, 28) } # => should receive $1000 refund
   let(:liability2) { TaxCalculator.liability(employee_w_refund) }
 
   it 'has (and exposes) an employee' do
