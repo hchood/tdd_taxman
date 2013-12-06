@@ -12,10 +12,12 @@ class Employee
   end
 
   def self.parse_data(filename)
-    @@employees = []
+    employees = []
     CSV.foreach(filename, headers: true) do |row|
-      @@employees << Employee.new(row["first_name"], row["last_name"], row["annual_income"], row["tax_paid"], row["tax_rate"])
+      employees << Employee.new(row["first_name"], row["last_name"], row["annual_income"], row["tax_paid"], row["tax_rate"])
     end
-    @@employees
+    employees
   end
 end
+
+Employee.new({"first_name" => "helen", })
