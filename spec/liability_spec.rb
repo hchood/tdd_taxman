@@ -28,3 +28,8 @@ describe Liability do
     expect(liability1.amount_owed).to eql(1400.0)
   end
 
+  it 'ensures that if amount_owed is positive, amount_due is zero (& vice versa)' do
+    expect(liability2.amount_owed).to eql(0)
+    expect(liability2.amount_due).to eql(1000.0)
+  end
+end
