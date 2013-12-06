@@ -12,7 +12,8 @@ require_relative '../lib/liability'
 # * returns an instance of Liability class
 
 describe TaxCalculator do
-  employee = Employee.new('helen', 'hood', 38000, 10000, 30)
+  let(:employee) { Employee.new('helen', 'hood', 38000, 10000, 30) }
+  let(:employees) { Employee.parse_data('test_citizens.csv') }
 
   it 'has a class method liability' do
     expect(TaxCalculator.respond_to?(:liability)).to be true
