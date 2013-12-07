@@ -20,4 +20,3 @@ class Employee
   end
 end
 
-Employee.new({"first_name" => "helen", })
